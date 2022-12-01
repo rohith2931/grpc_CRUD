@@ -1,0 +1,27 @@
+syntax="proto3";
+package empmgmt;
+option go_package="example.com/grpc";
+
+service EmpManagement{
+    rpc CreateNewEmp(NewEmp) returns (Emp){}
+    rpc GetEmps(GetEmpParams) returns (EmpList){}
+    rpc UpdateEmp(Emp) returns (Emp){}
+    rpc DeleteEmp(Emp) returns (Emp){}
+}
+message NewEmp{
+    string name=1;
+    int32 mid=2;
+    int32 did=3;
+}
+message Emp{
+    int32 id=1;
+    string name=2;
+    int32 mid=3;
+    int32 did=4;
+}
+message GetEmpParams{
+
+}
+message EmpList{
+    repeated Emp Employees=1;
+}
